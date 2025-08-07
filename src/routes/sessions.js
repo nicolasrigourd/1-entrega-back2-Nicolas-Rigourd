@@ -2,15 +2,15 @@ import express from 'express';
 import { loginUser, forgotPassword, resetPassword } from '../controllers/authController.js';
 import { registerUser } from '../controllers/userController.js';
 import passport from 'passport';
-import { sendEmail } from '../utils/mailer.js'; // ✅ Importamos el mailer
+import { sendEmail } from '../utils/mailer.js';
 
 const router = express.Router();
 
-// 🔐 Login y Registro
+
 router.post('/login', loginUser);
 router.post('/register', registerUser);
 
-// 👤 Obtener usuario autenticado
+
 router.get(
   '/current',
   passport.authenticate('jwt', { session: false }),
@@ -29,16 +29,15 @@ router.get(
   }
 );
 
-// 🔄 Recuperación de contraseña
+
 router.post('/forgot-password', forgotPassword);
 router.post('/reset-password/:token', resetPassword);
 
-// 📧 Ruta temporal de prueba para enviar email
 router.post('/send-test-email', async (req, res) => {
   try {
     await sendEmail({
-      to: 'tucorreo@gmail.com', // Reemplazá con un destinatario real
-      subject: '📧 Prueba desde el backend',
+      to: 'tucorreo@gmail.com', 
+      subject: ' Prueba desde el backend',
       html: '<h1>¡Funciona el envío de correos!</h1><p>Este es un email de prueba enviado con Nodemailer y Gmail.</p>',
     });
 

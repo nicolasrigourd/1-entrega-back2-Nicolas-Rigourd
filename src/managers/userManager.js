@@ -1,4 +1,4 @@
-// src/managers/userManager.js
+
 import bcrypt from 'bcrypt';
 import UserDao from '../daos/userDao.js';
 import UserDTO from '../dtos/user.dto.js';

@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken';
 import crypto from 'crypto';
 import { sendEmail } from '../utils/mailer.js';
 
-// 🔐 Login de usuario
+//  Login de usuario
 export const loginUser = async (req, res) => {
   const { email, password } = req.body;
 
@@ -28,8 +28,8 @@ export const loginUser = async (req, res) => {
     res
       .cookie('jwtToken', token, {
         httpOnly: true,
-        secure: false, // true solo en producción con HTTPS
-        maxAge: 3600000, // 1 hora
+        secure: false,  // true solo en producción con HTTPS
+        maxAge: 3600000,        // 1 hora
       })
       .json({ message: 'Login exitoso' });
   } catch (err) {
@@ -37,7 +37,7 @@ export const loginUser = async (req, res) => {
   }
 };
 
-// 📩 Solicitud de recuperación de contraseña
+           //  Solicitud de recuperación de contraseña
 export const forgotPassword = async (req, res) => {
   const { email } = req.body;
 
@@ -73,7 +73,7 @@ export const forgotPassword = async (req, res) => {
   }
 };
 
-// 🔄 Reset de contraseña con token
+                   //  Reset de contraseña con token
 export const resetPassword = async (req, res) => {
   const { token } = req.params;
   const { newPassword } = req.body;
