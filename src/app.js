@@ -34,9 +34,9 @@ mongoose.connect(process.env.MONGO_URI, {
 .then(() => {
   console.log('✅ Conectado a MongoDB');
   app.listen(process.env.PORT, () => {
-    console.log(`🚀 Servidor corriendo en http://localhost:${process.env.PORT}`);
+    console.log(` Servidor corriendo en http://localhost:${process.env.PORT}`);
   });
 })
 .catch((err) => {
-  console.error('❌ Error conectando MongoDB:', err);
+  console.error(' Error conectando MongoDB:', err);
 });
